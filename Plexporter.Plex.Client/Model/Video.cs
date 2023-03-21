@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using Plexporter.Plex.Client.Model.Enums;
 
 namespace Plexporter.Plex.Client.Model;
 
@@ -16,6 +17,9 @@ public class Video
     
     [XmlAttribute("librarySectionTitle")]
     public string LibrarySectionTitle { get; set; }
+
+    [XmlAttribute("type")]
+    public VideoType Type { get; set; }
     
     [XmlElement("User", IsNullable = true)]
     public User? User { get; set; }
