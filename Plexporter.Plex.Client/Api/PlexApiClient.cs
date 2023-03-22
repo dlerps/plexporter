@@ -14,5 +14,6 @@ public class PlexApiClient : IPlexApiClient
         _plexConfiguration = plexConfiguration;
     }
 
-    public Task<MediaContainer> GetSessions() => _plexApi.GetSessions(_plexConfiguration.Token);
+    public Task<MediaContainer> GetSessions(CancellationToken cancellationToken = default)
+        => _plexApi.GetSessions(_plexConfiguration.Token, cancellationToken);
 }

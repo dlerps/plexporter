@@ -5,6 +5,8 @@ using Plexporter.Plex.Client.Api;
 using Plexporter.Plex.Client.Configuration;
 using Plexporter.Server.Configuration;
 using Plexporter.Server.Host;
+using Plexporter.Server.Services;
+using Prometheus;
 
 namespace Plexporter.Server;
 
@@ -22,6 +24,8 @@ public static class Bootstrap
             .AddSingleton(plexConfiguration)
             .AddSingleton(metricsServerConfiguration)
             .AddSingleton<IPlexApiClientFactory, PlexApiClientFactory>()
+            .AddScoped<IMetricsService, MetricsService>()
+            .AddHostedService<PlexGrabberHost>()
             .AddHostedService<ServerHost>();
     }
 }
