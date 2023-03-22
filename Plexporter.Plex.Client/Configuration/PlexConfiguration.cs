@@ -1,4 +1,4 @@
-namespace Plexporter.Server.Configuration;
+namespace Plexporter.Plex.Client.Configuration;
 
 public class PlexConfiguration
 {
